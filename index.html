@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>태국어 회화 자습 코스 (기본 8주 + 비즈니스 4주)</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1c2230;--sub:#667085;--line:#e4e7ee;--brand:#1f3a8a;--brand2:#e11d48;--ok:#16a34a;--warn:#d97706}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Thonburi",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{background:var(--brand);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:10}
+header h1{margin:0;font-size:18px}
+header small{opacity:.8}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+nav button{background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer}
+nav button.on{background:#fff;color:var(--brand);font-weight:700}
+main{max-width:980px;margin:0 auto;padding:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+h2{margin:6px 0 10px;font-size:20px}
+h3{margin:0 0 6px;font-size:16px}
+.th{font-family:"Thonburi","Sukhumvit Set","Noto Sans Thai",sans-serif}
+.big{font-size:26px;font-weight:600}
+.muted{color:var(--sub);font-size:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+button.b{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:7px 12px;font-size:14px;cursor:pointer}
+button.b.ghost{background:#eef1fb;color:var(--brand)}
+button.b.red{background:var(--brand2)}
+button.b.ok{background:var(--ok)}
+button.ic{background:#eef1fb;border:0;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px}
+button.ic.rec{background:#fee2e2}
+select,input[type=checkbox]{font-size:14px}
+select{padding:6px;border-radius:8px;border:1px solid var(--line)}
+.item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item .txt{flex:1}
+.item .rom{color:var(--brand);font-size:14px}
+.item .ko{color:#7c3aed;font-size:14px}
+.item .mean{font-weight:600}
+.item .note{color:var(--sub);font-size:13px}
+.hide .rom,.hide .ko,.hide .mean{visibility:hidden}
+.hide .item:hover .rom,.hide .item:hover .ko,.hide .item:hover .mean{visibility:visible}
+.pill{display:inline-block;padding:1px 9px;border-radius:999px;font-size:12px;font-weight:700}
+.mid{background:#dcfce7;color:#166534}.high{background:#fee2e2;color:#991b1b}.low{background:#dbeafe;color:#1e3a8a}
+.tip{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:10px 12px;font-size:14px;margin:8px 0}
+.bar{height:10px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok)}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16px;cursor:pointer}
+.opt:hover{background:#f1f5f9}
+.opt.good{background:#dcfce7;border-color:#16a34a}
+.opt.bad{background:#fee2e2;border-color:#dc2626}
+.flash{min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;cursor:pointer}
+.chk{display:flex;gap:8px;align-items:flex-start;padding:4px 0}
+.weekhead{display:flex;justify-content:space-between;align-items:center}
+table{border-collapse:collapse;width:100%}
+td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px;vertical-align:top}
+a{color:var(--brand)}
+.dlg{padding:6px 0;display:flex;gap:10px;align-items:flex-start}
+.dlg b{min-width:46px;color:var(--sub);font-size:13px}
+@media(max-width:600px){.big{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🇹🇭 태국어 회화 자습 코스 <small>기본 8주 + 비즈니스 4주</small></h1>
+  <nav id="nav"></nav>
+</header>
+<main id="main"></main>
+<script>
+const DATA = {"lessons":[{"id":1,"title":"인사와 예의","goal":"만나고 헤어질 때, 감사·사과 표현","tip":"문장 끝에 남성은 크랍(ครับ), 여성은 카(ค่ะ/คะ)를 붙이면 정중해집니다. 질문은 여성이 '카'(คะ, 상승조 ká), 평서문은 '카'(ค่ะ, 하강조 kâ)로 성조가 다릅니다.","items":[{"th":"สวัสดีครับ","rom":"sà-wàt-dii kráp","ko":"사왓디 크랍","mean":"안녕하세요 (남성)","note":"여성은 สวัสดีค่ะ (사왓디 카)"},{"th":"สวัสดีค่ะ","rom":"sà-wàt-dii kâ","ko":"사왓디 카","mean":"안녕하세요 (여성)"},{"th":"สบายดีไหม","rom":"sà-baai dii mǎi","ko":"사바이 디 마이","mean":"잘 지내요?"},{"th":"สบายดี ขอบคุณครับ","rom":"sà-baai dii kɔ̀ɔp-kun kráp","ko":"사바이 디 컵쿤 크랍","mean":"잘 지내요, 감사합니다"},{"th":"ขอบคุณครับ","rom":"kɔ̀ɔp-kun kráp","ko":"컵쿤 크랍","mean":"감사합니다 (남성)","note":"여성은 ขอบคุณค่ะ"},{"th":"ขอบคุณค่ะ","rom":"kɔ̀ɔp-kun kâ","ko":"컵쿤 카","mean":"감사합니다 (여성)"},{"th":"ขอโทษครับ","rom":"kɔ̌ɔ-tôot kráp","ko":"커-토트 크랍","mean":"죄송합니다 / 실례합니다"},{"th":"ไม่เป็นไรครับ","rom":"mâi bpen rai kráp","ko":"마이 뻰 라이 크랍","mean":"괜찮아요 / 천만에요"},{"th":"ยินดีที่ได้รู้จักครับ","rom":"yin-dii tîi dâai rúu-jàk kráp","ko":"인디 티 다이 루-짝 크랍","mean":"만나서 반갑습니다"},{"th":"แล้วพบกันใหม่ครับ","rom":"léeo póp gan mài kráp","ko":"래우 폽 깐 마이 크랍","mean":"또 만나요"},{"th":"ลาก่อนครับ","rom":"laa gɔ̀ɔn kráp","ko":"라 껀 크랍","mean":"안녕히 가세요 / 안녕히 계세요"},{"th":"ไม่","rom":"mâi","ko":"마이","mean":"아니다 / ~하지 않다","note":"동사 앞에 붙여 부정"}]},{"id":2,"title":"자기소개","goal":"이름, 국적, 직업, 방문 목적 말하기","tip":"'저'는 남성 ผม(폼), 여성 ฉัน(찬)/ดิฉัน(디찬, 격식). '~이다'는 เป็น(뻰)을 씁니다. 태국 사람은 보통 이름보다 별명(ชื่อเล่น)을 먼저 말합니다.","items":[{"th":"คุณชื่ออะไรครับ","rom":"kun chûue à-rai kráp","ko":"쿤 츠- 아라이 크랍","mean":"이름이 뭐예요?"},{"th":"ผมชื่อ...ครับ","rom":"pǒm chûue ... kráp","ko":"폼 츠- ... 크랍","mean":"제 이름은 ...입니다 (남성)","note":"여성: ฉันชื่อ...ค่ะ (찬 츠- ... 카)"},{"th":"ฉันชื่อ...ค่ะ","rom":"chǎn chûue ... kâ","ko":"찬 츠- ... 카","mean":"제 이름은 ...입니다 (여성)","note":null},{"th":"ผมเป็นคนเกาหลีครับ","rom":"pǒm bpen kon gao-lǐi kráp","ko":"폼 뻰 콘 까올리 크랍","mean":"저는 한국 사람입니다"},{"th":"คุณมาจากไหนครับ","rom":"kun maa jàak nǎi kráp","ko":"쿤 마 짝 나이 크랍","mean":"어디에서 오셨어요?"},{"th":"ผมมาเที่ยวครับ","rom":"pǒm maa tîao kráp","ko":"폼 마 티아오 크랍","mean":"여행 왔어요"},{"th":"ผมทำงานที่นี่ครับ","rom":"pǒm tam-ngaan tîi-nîi kráp","ko":"폼 탐응안 티니 크랍","mean":"여기서 일해요"},{"th":"คุณทำงานอะไรครับ","rom":"kun tam-ngaan à-rai kráp","ko":"쿤 탐응안 아라이 크랍","mean":"무슨 일 하세요?"},{"th":"ผมเป็นครูครับ","rom":"pǒm bpen kruu kráp","ko":"폼 뻰 크루- 크랍","mean":"저는 선생님입니다"},{"th":"ผมกำลังเรียนภาษาไทยครับ","rom":"pǒm gam-lang rian paa-sǎa tai kráp","ko":"폼 깜랑 리안 파싸 타이 크랍","mean":"태국어 공부하고 있어요"},{"th":"พูดไทยนิดหน่อยครับ","rom":"pûut tai nít-nɔ̀i kráp","ko":"풋 타이 닛너이 크랍","mean":"태국어 조금 해요"}]},{"id":3,"title":"못 알아들었을 때 (생존 표현)","goal":"되묻기, 천천히 말해 달라고 하기","tip":"초보 때 가장 많이 쓰는 레슨입니다. 이 6~7문장만 있어도 대화가 끊기지 않습니다. 문장 끝에 ไหม(마이)를 붙이면 '~해 주실래요?' 질문이 됩니다.","items":[{"th":"ไม่เข้าใจครับ","rom":"mâi kâo-jai kráp","ko":"마이 카오짜이 크랍","mean":"이해 못 했어요"},{"th":"เข้าใจแล้วครับ","rom":"kâo-jai léeo kráp","ko":"카오짜이 래우 크랍","mean":"이해했어요"},{"th":"พูดช้าๆ ได้ไหมครับ","rom":"pûut cháa-cháa dâai mǎi kráp","ko":"풋 차차 다이 마이 크랍","mean":"천천히 말해 주실래요?"},{"th":"พูดอีกครั้งได้ไหมครับ","rom":"pûut ìik kráng dâai mǎi kráp","ko":"풋 이-ㄱ 크랑 다이 마이 크랍","mean":"한 번 더 말해 주실래요?"},{"th":"อันนี้ภาษาไทยว่าอะไรครับ","rom":"an-níi paa-sǎa tai wâa à-rai kráp","ko":"안니 파싸 타이 와 아라이 크랍","mean":"이건 태국어로 뭐라고 해요?"},{"th":"ผมไม่รู้ครับ","rom":"pǒm mâi rúu kráp","ko":"폼 마이 루- 크랍","mean":"몰라요"},{"th":"พูดภาษาอังกฤษได้ไหมครับ","rom":"pûut paa-sǎa ang-grìt dâai mǎi kráp","ko":"풋 파싸 앙끄릿 다이 마이 크랍","mean":"영어 할 수 있어요?"},{"th":"ได้","rom":"dâai","ko":"다이","mean":"할 수 있다 / 된다 / 괜찮다"},{"th":"ไม่ได้","rom":"mâi dâai","ko":"마이 다이","mean":"안 된다 / 할 수 없다"}]},{"id":4,"title":"숫자와 가격","goal":"0~100, 가격 묻고 알아듣기","tip":"11은 สิบเอ็ด(씹엣), 21은 ยี่สิบเอ็ด(이씹엣)처럼 일의 자리 1이 เอ็ด(엣)이 됩니다. 20은 สองสิบ(썽씹)이 아니라 ยี่สิบ(이씹). 돈 단위는 บาท(밧).","items":[{"th":"ศูนย์","rom":"sǔun","ko":"순-","mean":"0"},{"th":"หนึ่ง","rom":"nùng","ko":"능","mean":"1"},{"th":"สอง","rom":"sɔ̌ɔng","ko":"썽-","mean":"2"},{"th":"สาม","rom":"sǎam","ko":"쌈-","mean":"3"},{"th":"สี่","rom":"sìi","ko":"씨-","mean":"4"},{"th":"ห้า","rom":"hâa","ko":"하-","mean":"5"},{"th":"หก","rom":"hòk","ko":"혹","mean":"6"},{"th":"เจ็ด","rom":"jèt","ko":"쩻","mean":"7"},{"th":"แปด","rom":"bpɛ̀ɛt","ko":"뺏-","mean":"8"},{"th":"เก้า","rom":"gâao","ko":"까오","mean":"9"},{"th":"สิบ","rom":"sìp","ko":"씹","mean":"10"},{"th":"สิบเอ็ด","rom":"sìp-èt","ko":"씹엣","mean":"11"},{"th":"ยี่สิบ","rom":"yîi-sìp","ko":"이-씹","mean":"20"},{"th":"ห้าสิบ","rom":"hâa-sìp","ko":"하-씹","mean":"50"},{"th":"หนึ่งร้อย","rom":"nùng rɔ́ɔi","ko":"능 러-이","mean":"100"},{"th":"หนึ่งพัน","rom":"nùng pan","ko":"능 판","mean":"1,000"},{"th":"บาท","rom":"bàat","ko":"밧-","mean":"바트 (태국 화폐 단위)"},{"th":"เท่าไหร่","rom":"tâo-rài","ko":"타오라이","mean":"얼마"}]},{"id":5,"title":"쇼핑·흥정","goal":"가격 묻기, 깎기, 카드 결제","tip":"시장·노점에서는 흥정이 일반적이지만 편의점·백화점·정찰제 가게에서는 하지 않습니다. 웃으면서 '조금만 깎아 주세요' 하는 것이 포인트입니다.","items":[{"th":"อันนี้เท่าไหร่ครับ","rom":"an-níi tâo-rài kráp","ko":"안니 타오라이 크랍","mean":"이거 얼마예요?"},{"th":"แพงไปครับ","rom":"pɛɛng bpai kráp","ko":"팽- 빠이 크랍","mean":"너무 비싸요"},{"th":"ลดหน่อยได้ไหมครับ","rom":"lót nɔ̀i dâai mǎi kráp","ko":"롯 너이 다이 마이 크랍","mean":"좀 깎아 주실래요?"},{"th":"ถูกกว่านี้ได้ไหมครับ","rom":"tùuk gwàa níi dâai mǎi kráp","ko":"툭- 꽈- 니 다이 마이 크랍","mean":"이것보다 싸게 되나요?"},{"th":"ขอดูหน่อยครับ","rom":"kɔ̌ɔ duu nɔ̀i kráp","ko":"커- 두- 너이 크랍","mean":"좀 보여 주세요"},{"th":"เอาอันนี้ครับ","rom":"ao an-níi kráp","ko":"아오 안니 크랍","mean":"이걸로 할게요"},{"th":"ไม่เอาครับ","rom":"mâi ao kráp","ko":"마이 아오 크랍","mean":"필요 없어요 / 안 살게요"},{"th":"มีสีอื่นไหมครับ","rom":"mii sǐi uèuen mǎi kráp","ko":"미- 씨- 응- 마이 크랍","mean":"다른 색 있어요?"},{"th":"ใช้บัตรได้ไหมครับ","rom":"chái bàt dâai mǎi kráp","ko":"차이 밧 다이 마이 크랍","mean":"카드 되나요?"},{"th":"ขอถุงด้วยครับ","rom":"kɔ̌ɔ tǔng dûuai kráp","ko":"커- 퉁 두어이 크랍","mean":"봉지 주세요"}]},{"id":6,"title":"식당·음식 주문","goal":"메뉴 주문, 맵기 조절, 계산","tip":"매운 정도를 말하지 않으면 한국인에게도 매울 수 있습니다. ไม่เผ็ด(안 맵게), เผ็ดน้อย(조금 맵게)를 꼭 외우세요. 고수는 ผักชี(팍치). 문장 끝 ด้วย(두어이)는 '~해 주세요'의 부드러운 부탁입니다.","items":[{"th":"ขอเมนูหน่อยครับ","rom":"kɔ̌ɔ mee-nuu nɔ̀i kráp","ko":"커- 메-누- 너이 크랍","mean":"메뉴판 주세요"},{"th":"ขอผัดไทยหนึ่งที่ครับ","rom":"kɔ̌ɔ pàt-tai nùng tîi kráp","ko":"커- 팟타이 능 티- 크랍","mean":"팟타이 하나 주세요"},{"th":"ไม่เผ็ดครับ","rom":"mâi pèt kráp","ko":"마이 펫 크랍","mean":"안 맵게 해 주세요"},{"th":"เผ็ดน้อยครับ","rom":"pèt nɔ́ɔi kráp","ko":"펫 너-이 크랍","mean":"조금만 맵게 해 주세요"},{"th":"ไม่ใส่ผักชีครับ","rom":"mâi sài pàk-chii kráp","ko":"마이 싸이 팍치- 크랍","mean":"고수 빼 주세요"},{"th":"ขอน้ำเปล่าครับ","rom":"kɔ̌ɔ nám bplàao kráp","ko":"커- 남 쁠라오 크랍","mean":"물 주세요"},{"th":"อร่อยมากครับ","rom":"à-rɔ̀i mâak kráp","ko":"아러이 마-ㄱ 크랍","mean":"정말 맛있어요"},{"th":"กินที่นี่ครับ","rom":"gin tîi-nîi kráp","ko":"낀 티니 크랍","mean":"여기서 먹을게요"},{"th":"เอากลับบ้านครับ","rom":"ao glàp bâan kráp","ko":"아오 끌랍 반- 크랍","mean":"포장해 갈게요"},{"th":"เช็คบิลด้วยครับ","rom":"chék bin dûuai kráp","ko":"책 빈 두어이 크랍","mean":"계산서 주세요"},{"th":"ข้าวผัด","rom":"kâao pàt","ko":"카오 팟","mean":"볶음밥"},{"th":"ต้มยำกุ้ง","rom":"dtôm-yam-gûng","ko":"똠얌꿍","mean":"새우 똠얌 (새콤매콤한 국)"},{"th":"ส้มตำ","rom":"sôm-dtam","ko":"쏨땀","mean":"파파야 샐러드"},{"th":"ข้าวเหนียวมะม่วง","rom":"kâao-nǐao má-mûang","ko":"카오니아오 마무앙","mean":"망고 찰밥"},{"th":"ชาเย็น","rom":"chaa yen","ko":"차- 옌","mean":"태국식 밀크티 (아이스)"}]},{"id":7,"title":"길 찾기·교통","goal":"장소 묻기, 택시·BTS 이용","tip":"방콕 택시는 미터기를 켜달라고 말하는 것이 중요합니다(มิเตอร์). 앱(Grab, Bolt)을 쓰면 가격이 미리 나오지만, 목적지를 말로 전달할 일은 여전히 많습니다. 방향 단어 3개(좌/우/직진)를 먼저 외우세요.","items":[{"th":"ห้องน้ำอยู่ที่ไหนครับ","rom":"hɔ̂ng-náam yùu tîi-nǎi kráp","ko":"헝남 유- 티-나이 크랍","mean":"화장실이 어디예요?"},{"th":"ไปสนามบินครับ","rom":"bpai sà-nǎam-bin kráp","ko":"빠이 사남빈 크랍","mean":"공항으로 가 주세요"},{"th":"เปิดมิเตอร์ได้ไหมครับ","rom":"bpə̀ət mí-dtə̂ə dâai mǎi kráp","ko":"뻣- 미떠- 다이 마이 크랍","mean":"미터기 켜 주실래요?"},{"th":"ไกลไหมครับ","rom":"glai mǎi kráp","ko":"끌라이 마이 크랍","mean":"멀어요?"},{"th":"เลี้ยวซ้าย","rom":"líao sáai","ko":"리아오 싸이","mean":"좌회전"},{"th":"เลี้ยวขวา","rom":"líao kwǎa","ko":"리아오 콰-","mean":"우회전"},{"th":"ตรงไป","rom":"dtrong bpai","ko":"뜨롱 빠이","mean":"직진"},{"th":"จอดที่นี่ครับ","rom":"jɔ̀ɔt tîi-nîi kráp","ko":"쩟- 티니 크랍","mean":"여기 세워 주세요"},{"th":"รถไฟฟ้า","rom":"rót-fai-fáa","ko":"롯 파이 파-","mean":"BTS / 지상철"},{"th":"แท็กซี่","rom":"tɛ́k-sîi","ko":"택씨-","mean":"택시"},{"th":"สถานีอยู่ที่ไหนครับ","rom":"sà-tǎa-nii yùu tîi-nǎi kráp","ko":"사타-니- 유- 티-나이 크랍","mean":"역이 어디예요?"}]},{"id":8,"title":"호텔·숙소","goal":"체크인, 요청, 문제 말하기","tip":"룸 안의 문제는 '~ไม่…(마이…)'로 짧게 말해도 충분히 통합니다. 예: แอร์ไม่เย็น(에어컨이 시원하지 않아요).","items":[{"th":"จองห้องไว้แล้วครับ","rom":"jɔɔng hɔ̂ng wái léeo kráp","ko":"쩡- 헝 와이 래우 크랍","mean":"방 예약했어요"},{"th":"มีห้องว่างไหมครับ","rom":"mii hɔ̂ng wâang mǎi kráp","ko":"미- 헝 왕- 마이 크랍","mean":"빈방 있어요?"},{"th":"คืนละเท่าไหร่ครับ","rom":"kuuen lá tâo-rài kráp","ko":"큰- 라 타오라이 크랍","mean":"하룻밤에 얼마예요?"},{"th":"เช็คอินครับ","rom":"chék-in kráp","ko":"책인 크랍","mean":"체크인할게요"},{"th":"เช็คเอาท์กี่โมงครับ","rom":"chék-áo gìi moong kráp","ko":"책아오 끼- 몽 크랍","mean":"체크아웃은 몇 시예요?"},{"th":"มีไวไฟไหมครับ","rom":"mii wai-fai mǎi kráp","ko":"미- 와이파이 마이 크랍","mean":"와이파이 있어요?"},{"th":"ขอผ้าเช็ดตัวเพิ่มครับ","rom":"kɔ̌ɔ pâa-chét-dtuua pə̂əm kráp","ko":"커- 파-쳇뚜어 펌- 크랍","mean":"수건 더 주세요"},{"th":"แอร์ไม่เย็นครับ","rom":"ɛɛ mâi yen kráp","ko":"애- 마이 옌 크랍","mean":"에어컨이 시원하지 않아요"},{"th":"น้ำไม่ไหลครับ","rom":"náam mâi lǎi kráp","ko":"남- 마이 라이 크랍","mean":"물이 안 나와요"}]},{"id":9,"title":"시간·요일·날짜","goal":"때를 나타내는 말, 시각 묻기","tip":"태국어는 시제 변화가 없고 때를 나타내는 단어를 문장에 놓습니다. 과거는 แล้ว(래우), 미래는 จะ(짜)로 표시할 수 있습니다.","items":[{"th":"ตอนนี้กี่โมงแล้วครับ","rom":"dtɔɔn-níi gìi moong léeo kráp","ko":"떤니- 끼- 몽 래우 크랍","mean":"지금 몇 시예요?"},{"th":"วันนี้","rom":"wan-níi","ko":"완니-","mean":"오늘"},{"th":"พรุ่งนี้","rom":"prûng-níi","ko":"프룽니-","mean":"내일"},{"th":"เมื่อวาน","rom":"mûua-waan","ko":"므아완","mean":"어제"},{"th":"ตอนเช้า","rom":"dtɔɔn cháao","ko":"떤 차오","mean":"아침(에)"},{"th":"ตอนเย็น","rom":"dtɔɔn yen","ko":"떤 옌","mean":"저녁(에)"},{"th":"อาทิตย์หน้า","rom":"aa-tít nâa","ko":"아-팃 나-","mean":"다음 주"},{"th":"วันจันทร์","rom":"wan jan","ko":"완 짠","mean":"월요일"},{"th":"วันเสาร์","rom":"wan sǎo","ko":"완 싸오","mean":"토요일"},{"th":"วันอาทิตย์","rom":"wan aa-tít","ko":"완 아-팃","mean":"일요일"},{"th":"พรุ่งนี้ผมจะไปตลาดครับ","rom":"prûng-níi pǒm jà bpai dtà-làat kráp","ko":"프룽니- 폼 짜 빠이 따랏- 크랍","mean":"내일 시장에 갈 거예요"}]},{"id":10,"title":"일상 대화·감정","goal":"좋아함/원함, 감탄, 간단한 대화 이어가기","tip":"'좋아해요'(ชอบ), '원해요'(อยาก), '있어요'(มี)만 알아도 대화가 크게 늘어납니다. 칭찬은 มาก(마-ㄱ, 아주)을 붙이면 됩니다.","items":[{"th":"ผมชอบอาหารไทยครับ","rom":"pǒm chɔ̂ɔp aa-hǎan tai kráp","ko":"폼 첩- 아-한 타이 크랍","mean":"태국 음식 좋아해요"},{"th":"ผมอยากไปเชียงใหม่ครับ","rom":"pǒm yàak bpai chiang-mài kráp","ko":"폼 약- 빠이 치앙마이 크랍","mean":"치앙마이에 가고 싶어요"},{"th":"ประเทศไทยสวยมากครับ","rom":"bprà-têet tai sǔai mâak kráp","ko":"쁘라텟 타이 수어이 마-ㄱ 크랍","mean":"태국은 정말 아름다워요"},{"th":"สนุกมากครับ","rom":"sà-nùk mâak kráp","ko":"사눅 마-ㄱ 크랍","mean":"정말 재미있어요"},{"th":"คุณเก่งมากครับ","rom":"kun gèng mâak kráp","ko":"쿤 껭- 마-ㄱ 크랍","mean":"정말 잘하시네요"},{"th":"ผมมีลูกสองคนครับ","rom":"pǒm mii lûuk sɔ̌ɔng kon kráp","ko":"폼 미- 룩 썽- 콘 크랍","mean":"아이가 두 명 있어요"},{"th":"ร้อนมากครับ","rom":"rɔ́ɔn mâak kráp","ko":"런- 마-ㄱ 크랍","mean":"너무 더워요"},{"th":"หิวแล้วครับ","rom":"hǐu léeo kráp","ko":"히우 래우 크랍","mean":"배고파요"},{"th":"เหนื่อยมากครับ","rom":"nùuai mâak kráp","ko":"느어이 마-ㄱ 크랍","mean":"너무 피곤해요"},{"th":"เจอกันพรุ่งนี้ครับ","rom":"jəə gan prûng-níi kráp","ko":"쩌- 깐 프룽니- 크랍","mean":"내일 봐요"}]},{"id":11,"title":"의문사","goal":"누가, 언제, 어디서, 왜, 어떻게 묻기","tip":"의문사는 영어와 달리 문장 앞으로 가지 않고 답이 들어갈 자리에 그대로 놓입니다. 예/아니오 질문은 문장 끝에 ไหม(마이)를 붙이면 끝입니다.","items":[{"th":"อะไร","rom":"à-rai","ko":"아라이","mean":"무엇"},{"th":"ใคร","rom":"krai","ko":"크라이","mean":"누구"},{"th":"ที่ไหน","rom":"tîi-nǎi","ko":"티-나이","mean":"어디"},{"th":"เมื่อไหร่","rom":"mûua-rài","ko":"므아라이","mean":"언제"},{"th":"ทำไม","rom":"tam-mai","ko":"탐마이","mean":"왜"},{"th":"ยังไง","rom":"yang-ngai","ko":"양응아이","mean":"어떻게"},{"th":"เท่าไหร่","rom":"tâo-rài","ko":"타오라이","mean":"얼마 / 얼마나"},{"th":"กี่โมง","rom":"gìi moong","ko":"끼- 몽","mean":"몇 시"},{"th":"ไหม","rom":"mǎi","ko":"마이","mean":"~입니까? (예/아니오 질문 어미)"},{"th":"คุณชอบกินอะไรครับ","rom":"kun chɔ̂ɔp gin à-rai kráp","ko":"쿤 첩- 낀 아라이 크랍","mean":"무엇을 즐겨 드세요?"},{"th":"ทำไมแพงจังครับ","rom":"tam-mai pɛɛng jang kráp","ko":"탐마이 팽- 짱 크랍","mean":"왜 이렇게 비싸요?"}]},{"id":12,"title":"건강·응급","goal":"도움 요청, 아플 때 말하기","tip":"응급상황에서는 ช่วยด้วย(추어이 두어이, 도와주세요)를 크게 외치세요. 태국 관광경찰 번호는 1155, 응급(구급) 1669입니다. 출발 전에 공식 안내로 한 번 더 확인해 두세요.","items":[{"th":"ช่วยด้วย","rom":"chûuai dûuai","ko":"추어이 두어이","mean":"도와주세요!"},{"th":"เรียกตำรวจให้หน่อยครับ","rom":"rîak dtam-rùat hâi nɔ̀i kráp","ko":"리악 땀루엇 하이 너이 크랍","mean":"경찰 좀 불러 주세요"},{"th":"เรียกรถพยาบาลให้หน่อยครับ","rom":"rîak rót pá-yaa-baan hâi nɔ̀i kráp","ko":"리악 롯 파야반 하이 너이 크랍","mean":"구급차 좀 불러 주세요"},{"th":"โรงพยาบาลอยู่ที่ไหนครับ","rom":"roong-pá-yaa-baan yùu tîi-nǎi kráp","ko":"롱파야반 유- 티-나이 크랍","mean":"병원이 어디예요?"},{"th":"ผมไม่สบายครับ","rom":"pǒm mâi sà-baai kráp","ko":"폼 마이 사바이 크랍","mean":"몸이 아파요"},{"th":"ปวดหัว","rom":"bpùat hǔa","ko":"뿌엇 후어","mean":"머리가 아파요"},{"th":"ปวดท้อง","rom":"bpùat tɔ́ɔng","ko":"뿌엇 텅-","mean":"배가 아파요"},{"th":"ผมแพ้อาหารทะเลครับ","rom":"pǒm pɛ́ɛ aa-hǎan tá-lee kráp","ko":"폼 패- 아-한 탈레- 크랍","mean":"해산물 알레르기가 있어요"},{"th":"ร้านขายยาอยู่ที่ไหนครับ","rom":"ráan kǎai yaa yùu tîi-nǎi kráp","ko":"란- 카이 야- 유- 티-나이 크랍","mean":"약국이 어디예요?"},{"th":"หนังสือเดินทางหายครับ","rom":"nǎng-suěue dəən-taang hǎai kráp","ko":"낭스- 던-탕- 하이 크랍","mean":"여권을 잃어버렸어요"}]},{"id":13,"track":"biz","title":"[비즈] 첫 만남·명함·소개","goal":"격식 있는 인사, 명함 교환, 회사/직책 소개","tip":"첫 만남에서는 상대 이름 앞에 항상 คุณ(쿤)을 붙입니다. 성보다 이름(또는 별명)으로 부릅니다. 상대가 합장 인사(ไหว้, 와이)를 하면 같이 합장하며 สวัสดีครับ로 답하세요.","items":[{"th":"ยินดีที่ได้พบครับ","rom":"yin-dii tîi dâai póp kráp","ko":"인디 티 다이 폽 크랍","mean":"(격식) 만나 뵙게 되어 반갑습니다"},{"th":"ขอแนะนำตัวครับ","rom":"kɔ̌ɔ né-nam dtuua kráp","ko":"커- 내남 뚜어 크랍","mean":"제 소개를 드리겠습니다"},{"th":"นี่นามบัตรของผมครับ","rom":"nîi naam-bàt kɔ̌ɔng pǒm kráp","ko":"니- 남밧 컹- 폼 크랍","mean":"제 명함입니다"},{"th":"ขอนามบัตรหน่อยได้ไหมครับ","rom":"kɔ̌ɔ naam-bàt nɔ̀i dâai mǎi kráp","ko":"커- 남밧 너이 다이 마이 크랍","mean":"명함 하나 받을 수 있을까요?"},{"th":"ผมมาจากบริษัทเกาหลีครับ","rom":"pǒm maa jàak bɔɔ-ri-sàt gao-lǐi kráp","ko":"폼 마- 짝 버-리삿 까올리- 크랍","mean":"저는 한국 회사에서 왔습니다"},{"th":"ผมเป็นผู้จัดการครับ","rom":"pǒm bpen pûu-jàt-gaan kráp","ko":"폼 뻰 푸-짯간 크랍","mean":"저는 매니저(관리자)입니다"},{"th":"ผมดูแลฝ่ายขายครับ","rom":"pǒm duu-lɛɛ fàai kǎai kráp","ko":"폼 두-래- 파이 카이 크랍","mean":"영업 부서를 맡고 있습니다"},{"th":"ขอบคุณที่สละเวลาครับ","rom":"kɔ̀ɔp-kun tîi sà-là wee-laa kráp","ko":"컵쿤 티- 사라 웨-라- 크랍","mean":"시간 내 주셔서 감사합니다"},{"th":"ฝากตัวด้วยครับ","rom":"fàak dtuua dûuai kráp","ko":"팍- 뚜어 두어이 크랍","mean":"잘 부탁드립니다"},{"th":"ยินดีที่ได้ร่วมงานกันครับ","rom":"yin-dii tîi dâai rûuam-ngaan gan kráp","ko":"인디 티 다이 루엄응안 깐 크랍","mean":"함께 일하게 되어 기쁩니다"},{"th":"คุณ","rom":"kun","ko":"쿤","mean":"~님 / ~씨 (이름 앞에 붙임)","note":"예: คุณสมชาย (쿤 솜차이)"}]},{"id":14,"track":"biz","title":"[비즈] 회의 진행·질문·동의","goal":"회의 시작, 안건 말하기, 질문과 의견 표현","tip":"태국 비즈니스는 직접적인 반대를 피하는 편입니다. 반대할 때는 'ไม่เห็นด้วย(반대)'보다 'ผมขอคิดดูก่อน(생각해 볼게요)'처럼 완곡하게 말하는 것이 안전합니다. ครับ 같은 어미는 빼지 마세요.","items":[{"th":"เริ่มประชุมได้เลยครับ","rom":"rə̂əm bprà-chum dâai ləəi kráp","ko":"름- 쁘라춤 다이 르-이 크랍","mean":"회의 시작하겠습니다"},{"th":"วันนี้เราจะคุยเรื่องราคาครับ","rom":"wan-níi rao jà kui rûuang raa-kaa kráp","ko":"완니- 라오 짜 쿠이 르앙- 라-카- 크랍","mean":"오늘은 가격에 대해 이야기하겠습니다"},{"th":"บริษัทของเราผลิตอะไหล่รถยนต์ครับ","rom":"bɔɔ-ri-sàt kɔ̌ɔng rao pà-lìt à-lài rót-yon kráp","ko":"버-리삿 컹- 라오 팔릿 아라이 롯욘 크랍","mean":"저희 회사는 자동차 부품을 생산합니다"},{"th":"ขอดูตัวอย่างสินค้าหน่อยครับ","rom":"kɔ̌ɔ duu dtuua-yàang sǐn-káa nɔ̀i kráp","ko":"커- 두- 뚜어양- 신카- 너이 크랍","mean":"제품 샘플을 보여 주세요"},{"th":"ผมขอถามหน่อยครับ","rom":"pǒm kɔ̌ɔ tǎam nɔ̀i kráp","ko":"폼 커- 탐- 너이 크랍","mean":"질문 하나 드려도 될까요?"},{"th":"ช่วยอธิบายเพิ่มเติมได้ไหมครับ","rom":"chûuai à-tí-baai pə̂əm-dtəəm dâai mǎi kráp","ko":"추어이 아티바이 펌떰 다이 마이 크랍","mean":"추가 설명을 해 주실 수 있나요?"},{"th":"ผมเห็นด้วยครับ","rom":"pǒm hěn dûuai kráp","ko":"폼 헨 두어이 크랍","mean":"동의합니다"},{"th":"ผมไม่แน่ใจครับ","rom":"pǒm mâi nɛ̂ɛ-jai kráp","ko":"폼 마이 내-짜이 크랍","mean":"확신이 서지 않습니다"},{"th":"ขอเวลาคิดดูก่อนครับ","rom":"kɔ̌ɔ wee-laa kít duu gɔ̀ɔn kráp","ko":"커- 웨-라- 킷 두- 껀 크랍","mean":"생각해 볼 시간을 주세요"},{"th":"ขอสรุปนะครับ","rom":"kɔ̌ɔ sà-rùp ná kráp","ko":"커- 사룹 나 크랍","mean":"정리하겠습니다"}]},{"id":15,"track":"biz","title":"[비즈] 견적·협상·계약","goal":"가격, 수량, 납기, 결제 조건 묻고 협상하기","tip":"큰 수는 หมื่น(믄, 만), แสน(쌘, 10만), ล้าน(란, 100만)입니다. 숫자를 못 알아들었으면 바로 'พูดอีกครั้งได้ไหมครับ'로 되묻고, 중요한 숫자는 메모나 라인/이메일로 문서 확인을 받으세요.","items":[{"th":"ขอใบเสนอราคาหน่อยครับ","rom":"kɔ̌ɔ bai sà-nə̌ə raa-kaa nɔ̀i kráp","ko":"커- 바이 사느- 라-카- 너이 크랍","mean":"견적서 주세요"},{"th":"ราคานี้รวมภาษีหรือยังครับ","rom":"raa-kaa níi ruuam paa-sǐi ruěue yang kráp","ko":"라-카- 니- 루엄 파-씨- 르- 양 크랍","mean":"이 가격은 세금 포함인가요?"},{"th":"ลดราคาได้อีกไหมครับ","rom":"lót raa-kaa dâai ìik mǎi kráp","ko":"롯 라-카- 다이 이-ㄱ 마이 크랍","mean":"더 할인 되나요?"},{"th":"สั่งขั้นต่ำเท่าไหร่ครับ","rom":"sàng kân-dtàm tâo-rài kráp","ko":"쌍 칸땀 타오라이 크랍","mean":"최소 주문량이 얼마예요?"},{"th":"ส่งของได้เมื่อไหร่ครับ","rom":"sòng kɔ̌ɔng dâai mûua-rài kráp","ko":"쏭 컹- 다이 므아라이 크랍","mean":"언제 납품 가능해요?"},{"th":"ใช้เวลาผลิตกี่วันครับ","rom":"chái wee-laa pà-lìt gìi wan kráp","ko":"차이 웨-라- 팔릿 끼- 완 크랍","mean":"생산에 며칠 걸려요?"},{"th":"เงื่อนไขการชำระเงินเป็นอย่างไรครับ","rom":"ngûuan-kǎi gaan cham-rá-ngən bpen yàang-rai kráp","ko":"응언카이 깐 참라응언 뻰 양라이 크랍","mean":"결제 조건은 어떻게 되나요?"},{"th":"รับประกันกี่ปีครับ","rom":"ráp-bprà-gan gìi bpii kráp","ko":"랍쁘라깐 끼- 삐- 크랍","mean":"보증 기간은 몇 년이에요?"},{"th":"ผมขอดูสัญญาก่อนครับ","rom":"pǒm kɔ̌ɔ duu sǎn-yaa gɔ̀ɔn kráp","ko":"폼 커- 두- 싼야- 껀 크랍","mean":"계약서를 먼저 보겠습니다"},{"th":"ผมขอปรึกษาทีมก่อนครับ","rom":"pǒm kɔ̌ɔ bpruèk-sǎa tiim gɔ̀ɔn kráp","ko":"폼 커- 쁘륵싸- 팀 껀 크랍","mean":"팀과 상의해 보겠습니다"},{"th":"ตกลงครับ","rom":"dtòk-long kráp","ko":"똑롱 크랍","mean":"합의합니다 / 좋습니다"},{"th":"หนึ่งหมื่น","rom":"nùng mùuen","ko":"능 므은","mean":"10,000"},{"th":"หนึ่งแสน","rom":"nùng sɛ̌ɛn","ko":"능 쌘-","mean":"100,000"},{"th":"หนึ่งล้าน","rom":"nùng láan","ko":"능 란-","mean":"1,000,000"}]},{"id":16,"track":"biz","title":"[비즈] 전화·일정·메시지","goal":"전화 연결, 약속 잡기·변경, 이메일/라인 안내","tip":"태국 비즈니스 연락은 전화, 이메일과 함께 LINE 메신저를 많이 씁니다. 처음 만난 뒤 'ขอไลน์หน่อยครับ'로 라인 아이디를 교환하는 일이 흔합니다. 방콕은 교통체증이 심해서 이동 시간을 넉넉히 잡으세요.","items":[{"th":"ขอสายคุณสมชายหน่อยครับ","rom":"kɔ̌ɔ sǎai kun sǒm-chaai nɔ̀i kráp","ko":"커- 싸이 쿤 쏨차이 너이 크랍","mean":"쏨차이 씨 좀 바꿔 주세요"},{"th":"รอสักครู่ครับ","rom":"rɔɔ sàk-krûu kráp","ko":"러- 삭크루- 크랍","mean":"잠시만 기다려 주세요"},{"th":"ผมโทรกลับนะครับ","rom":"pǒm too glàp ná kráp","ko":"폼 토- 끌랍 나 크랍","mean":"다시 전화드리겠습니다"},{"th":"ขอนัดประชุมวันพุธได้ไหมครับ","rom":"kɔ̌ɔ nát bprà-chum wan pút dâai mǎi kráp","ko":"커- 낫 쁘라춤 완 풋 다이 마이 크랍","mean":"수요일에 회의 잡을 수 있을까요?"},{"th":"สะดวกกี่โมงครับ","rom":"sà-dùak gìi moong kráp","ko":"사두악 끼- 몽 크랍","mean":"몇 시가 편하세요?"},{"th":"ขอเลื่อนนัดได้ไหมครับ","rom":"kɔ̌ɔ lûuan nát dâai mǎi kráp","ko":"커- 르안 낫 다이 마이 크랍","mean":"약속을 미룰 수 있을까요?"},{"th":"ผมจะส่งอีเมลให้ครับ","rom":"pǒm jà sòng ii-meen hâi kráp","ko":"폼 짜 쏭 이-멘 하이 크랍","mean":"이메일 보내 드리겠습니다"},{"th":"ช่วยส่งไฟล์มาให้หน่อยครับ","rom":"chûuai sòng fai maa hâi nɔ̀i kráp","ko":"추어이 쏭 파이 마- 하이 너이 크랍","mean":"파일 좀 보내 주세요"},{"th":"ขอไลน์หน่อยครับ","rom":"kɔ̌ɔ lai nɔ̀i kráp","ko":"커- 라이 너이 크랍","mean":"라인(LINE) 아이디 알려 주세요"},{"th":"ขอโทษที่มาสายครับ","rom":"kɔ̌ɔ-tôot tîi maa sǎai kráp","ko":"커-토-트 티- 마- 싸이 크랍","mean":"늦어서 죄송합니다"},{"th":"รถติดมากครับ","rom":"rót dtìt mâak kráp","ko":"롯 띳 마-ㄱ 크랍","mean":"차가 많이 막혀요"}]},{"id":17,"track":"biz","title":"[비즈] 식사·접대·술자리","goal":"식사 제안, 대접, 술 사양, 감사 표현","tip":"태국에서는 초대한 쪽이 계산하는 경우가 많습니다. 술을 못 마시면 'ผมไม่ดื่มครับ'로 정중히 사양하면 됩니다. 식사 자리는 관계를 쌓는 중요한 시간이라 업무 이야기를 바로 꺼내기보다 가벼운 대화로 시작하는 편이 좋습니다.","items":[{"th":"ไปทานข้าวด้วยกันไหมครับ","rom":"bpai taan kâao dûuai-gan mǎi kráp","ko":"빠이 탄 카오 두어이깐 마이 크랍","mean":"같이 식사하러 갈까요?"},{"th":"ผมขอเลี้ยงข้าวครับ","rom":"pǒm kɔ̌ɔ líang kâao kráp","ko":"폼 커- 리앙 카오 크랍","mean":"제가 식사 대접하겠습니다"},{"th":"ทานอะไรดีครับ","rom":"taan à-rai dii kráp","ko":"탄 아라이 디- 크랍","mean":"뭐 드시겠어요?"},{"th":"ทานเผ็ดได้ไหมครับ","rom":"taan pèt dâai mǎi kráp","ko":"탄 펫 다이 마이 크랍","mean":"매운 음식 드실 수 있어요?"},{"th":"ชนแก้วครับ","rom":"chon gɛ̂ɛo kráp","ko":"촌 깨우 크랍","mean":"건배합시다"},{"th":"ผมไม่ดื่มครับ","rom":"pǒm mâi dùuem kráp","ko":"폼 마이 드음 크랍","mean":"저는 술을 안 마셔요"},{"th":"อิ่มแล้วครับ","rom":"ìm léeo kráp","ko":"임 래우 크랍","mean":"배불러요"},{"th":"อาหารอร่อยมากครับ ขอบคุณที่เลี้ยงครับ","rom":"aa-hǎan à-rɔ̀i mâak kráp kɔ̀ɔp-kun tîi líang kráp","ko":"아-한 아러이 마-ㄱ 크랍 컵쿤 티- 리앙 크랍","mean":"음식이 정말 맛있어요. 대접해 주셔서 감사합니다"},{"th":"ผมจ่ายเองครับ","rom":"pǒm jàai eeng kráp","ko":"폼 짜이 엥- 크랍","mean":"제가 낼게요"}]},{"id":18,"track":"biz","title":"[비즈] 결제·서류·현장·물류","goal":"송금, 세금계산서, 하자 문의, 공장 방문","tip":"서류 용어는 영어를 섞어 쓰는 일이 많습니다. 부가세(VAT)는 현재 7%로 알려져 있지만 세율과 면세 규정은 바뀔 수 있으니 회계사나 세무 전문가에게 확인하세요. 외국인이 일하려면 비자와 워크퍼밋이 필요하니 법적 요건은 공식 기관에서 확인하세요.","items":[{"th":"โอนเงินแล้วครับ","rom":"oon ngən léeo kráp","ko":"온- 응언 래우 크랍","mean":"송금했습니다"},{"th":"ขอใบกำกับภาษีด้วยครับ","rom":"kɔ̌ɔ bai gam-gàp paa-sǐi dûuai kráp","ko":"커- 바이 깜깝 파-씨- 두어이 크랍","mean":"세금계산서(Tax invoice) 주세요"},{"th":"ใบแจ้งหนี้","rom":"bai jɛ̂ɛng-nîi","ko":"바이 쨍- 니-","mean":"인보이스(청구서)"},{"th":"ใบสั่งซื้อ","rom":"bai sàng-suéue","ko":"바이 쌍 쓰-","mean":"발주서(PO)"},{"th":"ภาษีมูลค่าเพิ่ม","rom":"paa-sǐi muun-lá-kâa pə̂əm","ko":"파-씨- 문라카- 펌-","mean":"부가가치세(VAT)"},{"th":"สินค้าถึงแล้วครับ","rom":"sǐn-káa tuěng léeo kráp","ko":"신카- 틍 래우 크랍","mean":"물건 도착했습니다"},{"th":"สินค้าชำรุดครับ","rom":"sǐn-káa cham-rút kráp","ko":"신카- 참룻 크랍","mean":"제품에 하자(파손)가 있습니다"},{"th":"ขอเปลี่ยนสินค้าได้ไหมครับ","rom":"kɔ̌ɔ bplìan sǐn-káa dâai mǎi kráp","ko":"커- 쁠리안 신카- 다이 마이 크랍","mean":"제품 교환 가능한가요?"},{"th":"โรงงานอยู่ที่ไหนครับ","rom":"roong-ngaan yùu tîi-nǎi kráp","ko":"롱응안 유- 티-나이 크랍","mean":"공장은 어디에 있어요?"},{"th":"ผมขอเยี่ยมชมโรงงานได้ไหมครับ","rom":"pǒm kɔ̌ɔ yîam-chom roong-ngaan dâai mǎi kráp","ko":"폼 커- 이암촘 롱응안 다이 마이 크랍","mean":"공장 견학 가능한가요?"},{"th":"ขนส่ง","rom":"kǒn-sòng","ko":"콘송","mean":"운송 / 물류"},{"th":"ศุลกากร","rom":"sǔn-lá-gaa-gɔɔn","ko":"순라까-껀","mean":"세관"},{"th":"ใบอนุญาตทำงาน","rom":"bai à-nú-yâat tam-ngaan","ko":"바이 아누야-트 탐응안","mean":"워크퍼밋(취업 허가증)"}]}],"dialogues":[{"lesson":2,"title":"첫 만남","lines":[["A","สวัสดีครับ คุณชื่ออะไรครับ","sà-wàt-dii kráp kun chûue à-rai kráp","안녕하세요, 이름이 뭐예요?"],["B","สวัสดีค่ะ ฉันชื่อมีนาค่ะ","sà-wàt-dii kâ chǎn chûue mii-naa kâ","안녕하세요, 저는 미나예요."],["A","ผมชื่อจุนครับ ผมเป็นคนเกาหลี","pǒm chûue jun kráp pǒm bpen kon gao-lǐi","저는 준이고 한국 사람이에요."],["B","ยินดีที่ได้รู้จักค่ะ","yin-dii tîi dâai rúu-jàk kâ","만나서 반가워요."],["A","ยินดีที่ได้รู้จักครับ","yin-dii tîi dâai rúu-jàk kráp","저도 반갑습니다."]]},{"lesson":6,"title":"식당에서 주문","lines":[["직원","รับอะไรดีคะ","ráp à-rai dii ká","뭐 드릴까요?"],["손님","ขอผัดไทยหนึ่งที่ครับ ไม่เผ็ดนะครับ","kɔ̌ɔ pàt-tai nùng tîi kráp mâi pèt ná kráp","팟타이 하나요. 안 맵게 해 주세요."],["직원","รับน้ำอะไรไหมคะ","ráp nám à-rai mǎi ká","음료는 뭐 드릴까요?"],["손님","ขอน้ำเปล่าครับ","kɔ̌ɔ nám bplàao kráp","물 주세요."],["손님","เช็คบิลด้วยครับ","chék bin dûuai kráp","계산서 주세요."],["직원","ทั้งหมดร้อยยี่สิบบาทค่ะ","táng-mòt rɔ́ɔi yîi-sìp bàat kâ","전부 120바트입니다."]]},{"lesson":7,"title":"택시 타기","lines":[["손님","ไปสนามบินครับ เปิดมิเตอร์ได้ไหมครับ","bpai sà-nǎam-bin kráp bpə̀ət mí-dtə̂ə dâai mǎi kráp","공항 가 주세요. 미터기 켜 주실래요?"],["기사","ได้ครับ","dâai kráp","네, 됩니다."],["손님","ไกลไหมครับ","glai mǎi kráp","멀어요?"],["기사","ประมาณสามสิบนาทีครับ","bprà-maan sǎam-sìp naa-tii kráp","약 30분이요."],["손님","จอดที่นี่ครับ","jɔ̀ɔt tîi-nîi kráp","여기 세워 주세요."]]},{"lesson":13,"title":"거래처와 첫 미팅","lines":[["나","สวัสดีครับ คุณสมชาย ยินดีที่ได้พบครับ","sà-wàt-dii kráp kun sǒm-chaai yin-dii tîi dâai póp kráp","안녕하세요, 쏨차이 씨. 만나 뵙게 되어 반갑습니다."],["상대","สวัสดีครับ ยินดีต้อนรับครับ","sà-wàt-dii kráp yin-dii dtɔ̂ɔn-ráp kráp","안녕하세요, 환영합니다."],["나","ผมมาจากบริษัทเกาหลีครับ นี่นามบัตรของผมครับ","pǒm maa jàak bɔɔ-ri-sàt gao-lǐi kráp nîi naam-bàt kɔ̌ɔng pǒm kráp","저는 한국 회사에서 왔습니다. 제 명함입니다."],["상대","ขอบคุณครับ นี่นามบัตรของผมครับ","kɔ̀ɔp-kun kráp nîi naam-bàt kɔ̌ɔng pǒm kráp","감사합니다. 이건 제 명함입니다."],["나","ขอบคุณที่สละเวลาครับ ฝากตัวด้วยครับ","kɔ̀ɔp-kun tîi sà-là wee-laa kráp fàak dtuua dûuai kráp","시간 내 주셔서 감사합니다. 잘 부탁드립니다."]]},{"lesson":15,"title":"가격 협상","lines":[["나","ขอใบเสนอราคาหน่อยครับ","kɔ̌ɔ bai sà-nə̌ə raa-kaa nɔ̀i kráp","견적서 주세요."],["나","ราคานี้รวมภาษีหรือยังครับ","raa-kaa níi ruuam paa-sǐi ruěue yang kráp","이 가격은 세금 포함인가요?"],["상대","ยังไม่รวมครับ","yang mâi ruuam kráp","아직 포함 안 됐어요."],["나","ลดราคาได้อีกไหมครับ","lót raa-kaa dâai ìik mǎi kráp","더 할인 되나요?"],["상대","ขอปรึกษาผู้จัดการก่อนครับ","kɔ̌ɔ bpruèk-sǎa pûu-jàt-gaan gɔ̀ɔn kráp","매니저와 상의해 보겠습니다."],["나","ส่งของได้เมื่อไหร่ครับ","sòng kɔ̌ɔng dâai mûua-rài kráp","납품은 언제 가능해요?"]]}],"tones":[{"name":"평성 (mid)","mark":"(표시 없음)","th":"มา","rom":"maa","mean":"오다","desc":"평평하고 편안한 중간 높이. 한국어 평소 목소리 높이."},{"name":"저성 (low)","mark":"à","th":"ใหม่","rom":"mài","mean":"새로운","desc":"낮은 곳에서 짧게 뚝 떨어뜨리듯 낮고 평평하게."},{"name":"하성 (falling)","mark":"â","th":"ไม่","rom":"mâi","mean":"아니다","desc":"높은 곳에서 아래로 떨어뜨리기. 놀라서 '아!' 하듯."},{"name":"고성 (high)","mark":"á","th":"ม้า","rom":"máa","mean":"말(동물)","desc":"평소보다 높게, 약간 끌어올린 높이를 유지."},{"name":"상성 (rising)","mark":"ǎ","th":"หมา","rom":"mǎa","mean":"개","desc":"낮게 시작해 위로 올리기. 의문문 억양처럼."}],"toneDrills":[["มา","maa","오다","평성"],["ม้า","máa","말","고성"],["หมา","mǎa","개","상성"],["ไม่","mâi","아니다","하성"],["ใหม่","mài","새로운","저성"],["ใกล้","glâi","가깝다","하성"],["ไกล","glai","멀다","평성"],["ไหม","mǎi","~니까?","상성"],["ไม้","máai","나무","고성"],["เสือ","suěa","호랑이","상성"],["เสื่อ","suèa","돗자리","저성"],["เสื้อ","suêa","옷","하성"]],"consonants":[["ก","ก ไก่","g","mid","닭","까-"],["ข","ข ไข่","k","high","달걀","카-"],["ฃ","ฃ ขวด","k","high","병 (사용 안 함)","카-"],["ค","ค ควาย","k","low","물소","카-"],["ฅ","ฅ คน","k","low","사람 (사용 안 함)","카-"],["ฆ","ฆ ระฆัง","k","low","종","카-"],["ง","ง งู","ng","low","뱀","응어-"],["จ","จ จาน","j","mid","접시","쩌-"],["ฉ","ฉ ฉิ่ง","ch","high","작은 심벌즈","처-"],["ช","ช ช้าง","ch","low","코끼리","처-"],["ซ","ซ โซ่","s","low","쇠사슬","써-"],["ฌ","ฌ เฌอ","ch","low","나무","처-"],["ญ","ญ หญิง","y","low","여자","여-"],["ฎ","ฎ ชฎา","d","mid","관","더-"],["ฏ","ฏ ปฏัก","dt","mid","막대","떠-"],["ฐ","ฐ ฐาน","t","high","받침","터-"],["ฑ","ฑ มณโฑ","t","low","인물 이름","터-"],["ฒ","ฒ ผู้เฒ่า","t","low","노인","터-"],["ณ","ณ เณร","n","low","어린 승려","너-"],["ด","ด เด็ก","d","mid","아이","더-"],["ต","ต เต่า","dt","mid","거북이","떠-"],["ถ","ถ ถุง","t","high","봉지","터-"],["ท","ท ทหาร","t","low","군인","터-"],["ธ","ธ ธง","t","low","깃발","터-"],["น","น หนู","n","low","쥐","너-"],["บ","บ ใบไม้","b","mid","나뭇잎","버-"],["ป","ป ปลา","bp","mid","물고기","뻐-"],["ผ","ผ ผึ้ง","p","high","벌","퍼-"],["ฝ","ฝ ฝา","f","high","뚜껑","f(영어 f)"],["พ","พ พาน","p","low","쟁반","퍼-"],["ฟ","ฟ ฟัน","f","low","이(치아)","f(영어 f)"],["ภ","ภ สำเภา","p","low","범선","퍼-"],["ม","ม ม้า","m","low","말","머-"],["ย","ย ยักษ์","y","low","거인","여-"],["ร","ร เรือ","r","low","배","러-"],["ล","ล ลิง","l","low","원숭이","러-(l)"],["ว","ว แหวน","w","low","반지","워-"],["ศ","ศ ศาลา","s","high","정자","써-"],["ษ","ษ ฤๅษี","s","high","수행자","써-"],["ส","ส เสือ","s","high","호랑이","써-"],["ห","ห หีบ","h","high","상자","허-"],["ฬ","ฬ จุฬา","l","low","연","러-(l)"],["อ","อ อ่าง","ʔ(모음 자리)","mid","대야","어-"],["ฮ","ฮ นกฮูก","h","low","부엉이","허-"]],"weeks":[{"w":1,"title":"소리 열기","goals":["성조 5개 구분해서 듣기/말하기","레슨 1 (인사) 전부 소리 내어 따라 하기","자음 중 '중자음' 9개(ก จ ฎ ฏ ด ต บ ป อ) 모양 익히기"],"lessons":[1],"review":"하루 마무리: 성조 연습 → 레슨 1 쉐도잉 → 복습 카드"},{"w":2,"title":"나를 소개하기","goals":["자기소개 30초 스크립트 만들어 말하기","'못 알아들었을 때' 표현 7개를 반사적으로 말하기","고자음 11개 모양 익히기"],"lessons":[2,3],"review":"내 소개를 휴대폰으로 녹음해서 원어 음성과 비교"},{"w":3,"title":"숫자와 쇼핑","goals":["0~100까지 막힘없이 세기","가격을 듣고 숫자로 받아 적기","저자음 1~10개 학습"],"lessons":[4,5],"review":"마트/시장 가격표를 보고 태국어로 읽는 연습"},{"w":4,"title":"식당 말하기 + 중간 점검","goals":["메뉴 주문 + 맵기 조절 + 계산 완료하기","퀴즈 탭의 모든 모드에서 80% 이상","튜터(italki/Preply) 체험 수업 1회"],"lessons":[6],"review":"튜터 수업 후 막힌 표현을 복습 카드에 직접 추가"},{"w":5,"title":"이동과 숙소","goals":["택시/BTS에서 필요한 문장 말하기","체크인~불편 접수 표현","저자음 나머지 학습"],"lessons":[7,8],"review":"구글 지도로 태국 지명을 찾고 방향 문장으로 안내하기 놀이"},{"w":6,"title":"시간·의문사","goals":["시각/요일/날짜 말하기","의문사 8개로 질문 만들기","자음 44개 한 번씩 읽기"],"lessons":[9,11],"review":"하루 일정 3문장 말하기 (내일 ~에 갈 거예요)"},{"w":7,"title":"일상 대화와 안전","goals":["취향/감정/가족 이야기","응급 표현 암기","튜터와 롤플레이 1회"],"lessons":[10,12],"review":"튜터에게 '오늘 배운 표현으로 20분 대화' 요청"},{"w":8,"title":"종합 + 다음 단계","goals":["레슨 1~12 전체 복습 카드 완료","퀴즈 전 모드 90%","다음 단계 목표 설정 (문자 읽기 / 업무 회화 / 여행)"],"lessons":[],"review":"8주 전체 녹음 파일과 비교해 발전한 점 확인"},{"w":9,"title":"[비즈] 첫 만남·회의","goals":["60초 비즈니스 소개(회사·직책·방문 목적) 외워서 말하기","회의 시작·질문·동의·유보 표현 6개 말하기","'비즈니스 매너' 탭을 읽고 와이/명함/호칭 규칙 정리하기"],"lessons":[13,14],"review":"명함 교환부터 첫 질문까지 3분 롤플레이를 녹음해서 비교"},{"w":10,"title":"[비즈] 견적·협상","goals":["견적·세금·납기·결제 조건 질문 6개 말하기","만/십만/백만 단위 숫자 듣고 받아 적기","'생각해 볼게요/상의해 볼게요'로 완곡하게 답하기"],"lessons":[15],"review":"튜터에게 '구매 담당자 역할'을 맡기고 가격 협상 롤플레이"},{"w":11,"title":"[비즈] 전화·일정·접대","goals":["전화 연결과 재통화 표현 말하기","약속 잡기·변경·지각 사과 표현","식사 제안, 건배, 술 사양 표현"],"lessons":[16,17],"review":"일정 조율 대화를 라인 메시지 형식으로도 연습"},{"w":12,"title":"[비즈] 서류·현장 + 종합 롤플레이","goals":["송금·세금계산서·하자 문의 표현","공장 견학과 납품 일정 대화","레슨 13~18 퀴즈 80% 이상"],"lessons":[18],"review":"튜터와 '첫 미팅 → 견적 → 식사' 30분 연속 롤플레이"}],"grammar":[["기본 어순","주어 + 동사 + 목적어. 영어와 같습니다. 동사 활용(시제/인칭)이 없어요.","ผมกินข้าว (폼 낀 카오) 나는 밥을 먹는다"],["부정 ไม่ (마이)","동사/형용사 앞에 ไม่를 붙입니다.","ไม่เผ็ด (마이 펫) 맵지 않다"],["예/아니오 질문 ไหม (마이)","문장 끝에 ไหม를 붙입니다. (상승조 mǎi)","สบายดีไหม 잘 지내요?"],["완료 แล้ว (래우)","동사 뒤에 붙여 '이미 ~했다'.","กินแล้ว (낀 래우) 이미 먹었다"],["미래 จะ (짜)","동사 앞에 놓습니다.","จะไป (짜 빠이) 갈 것이다"],["진행 กำลัง (깜랑)","동사 앞에 놓습니다. '~하는 중이다'.","กำลังเรียน (깜랑 리안) 공부하는 중"],["가능 ได้ (다이)","동사 뒤에 붙여 '~할 수 있다'.","พูดไทยได้ (풋 타이 다이) 태국어 할 수 있다"],["원함 อยาก (약)","동사 앞에 붙여 '~하고 싶다'.","อยากไป (약 빠이) 가고 싶다"],["부탁 ขอ...หน่อย (커-...너이)","'~ 좀 주세요'의 기본 틀입니다. 뒤에 명사를 붙이면 됩니다.","ขอน้ำหน่อย (커- 남 너이) 물 좀 주세요"],["강조 มาก (마-ㄱ)","형용사 뒤에 붙이면 '아주'.","อร่อยมาก (아러이 마-ㄱ) 아주 맛있다"],["이다 เป็น (뻰) / 있다 อยู่ (유-) / 가지다 มี (미-)","신분·직업은 เป็น, 위치는 อยู่, 소유·존재는 มี.","เป็นครู / อยู่ที่นี่ / มีลูก"]],"resources":[{"cat":"듣기·강의","title":"ThaiPod101","url":"https://www.thaipod101.com","desc":"레벨별 오디오/비디오 수업. 초보 입문 과정이 구성이 좋음. 유료 구독이 있으니 무료 체험부터."},{"cat":"듣기·강의","title":"Pimsleur 태국어","url":"https://www.pimsleur.com","desc":"듣고 말하는 방식으로 발음과 반응 속도 훈련에 좋음. 구독 요금제."},{"cat":"듣기·강의","title":"Learn Thai with Mod (YouTube)","url":"https://www.youtube.com/results?search_query=Learn+Thai+with+Mod","desc":"초중급 회화를 설명 위주로 알려 주는 채널. 검색 결과에서 채널을 확인하세요."},{"cat":"듣기·강의","title":"Thai Language Hut (YouTube/웹)","url":"https://www.youtube.com/results?search_query=Thai+Language+Hut","desc":"상황별 표현과 문자 설명."},{"cat":"듣기·강의","title":"YouTube: 태국어 회화 (한국어 설명)","url":"https://www.youtube.com/results?search_query=%ED%83%9C%EA%B5%AD%EC%96%B4+%ED%9A%8C%ED%99%94+%EA%B8%B0%EC%B4%88","desc":"한국어로 설명하는 입문 영상을 찾을 때."},{"cat":"사전·도구","title":"Thai-language.com","url":"https://www.thai-language.com","desc":"영어-태국어 온라인 사전. 단어 발음/성조/예문이 풍부한 학습자 사이트."},{"cat":"사전·도구","title":"네이버 태국어 사전","url":"https://dict.naver.com/thkodict/","desc":"태국어-한국어 사전. 모르는 단어를 한국어로 바로 확인."},{"cat":"사전·도구","title":"Google 번역 (태국어→한국어)","url":"https://translate.google.com/?sl=th&tl=ko","desc":"읽기/듣기 확인용. 번역을 믿기보다 보조로."},{"cat":"사전·도구","title":"Duolingo (태국어)","url":"https://www.duolingo.com","desc":"가볍게 매일 습관 만들기용. 회화 깊이는 얕으니 보조로 사용."},{"cat":"말하기 파트너","title":"italki","url":"https://www.italki.com","desc":"태국인 튜터 1:1 수업. 체험 수업으로 튜터를 비교해 보세요."},{"cat":"말하기 파트너","title":"Preply","url":"https://preply.com","desc":"1:1 튜터 플랫폼."},{"cat":"말하기 파트너","title":"HelloTalk","url":"https://www.hellotalk.com","desc":"태국인과 언어 교환(채팅/음성)."},{"cat":"말하기 파트너","title":"Tandem","url":"https://tandem.net","desc":"언어 교환 앱."},{"cat":"비즈니스 (공식 기관)","title":"태국 투자청 BOI","url":"https://www.boi.go.th","desc":"투자 인센티브, 외국인 투자 절차 공식 안내."},{"cat":"비즈니스 (공식 기관)","title":"태국 상무부 사업개발국(DBD)","url":"https://www.dbd.go.th","desc":"법인 등록, 사업 관련 공식 정보."},{"cat":"비즈니스 (공식 기관)","title":"KOTRA","url":"https://www.kotra.or.kr","desc":"태국 시장 정보와 방콕 무역관 자료를 찾을 때."},{"cat":"비즈니스 (공식 기관)","title":"주태국 대한민국 대사관","url":"https://overseas.mofa.go.kr/th-ko/index.do","desc":"영사·비자·안전 공지."},{"cat":"비즈니스 태국어 학습","title":"YouTube: Thai business etiquette","url":"https://www.youtube.com/results?search_query=Thai+business+etiquette","desc":"비즈니스 매너 영상을 검색합니다."},{"cat":"비즈니스 태국어 학습","title":"YouTube: 비즈니스 태국어","url":"https://www.youtube.com/results?search_query=%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4+%ED%83%9C%EA%B5%AD%EC%96%B4","desc":"한국어로 된 비즈니스 태국어 영상을 찾을 때."},{"cat":"비즈니스 태국어 학습","title":"italki: Thai business 튜터 검색","url":"https://www.italki.com/en/teachers/thai","desc":"튜터 프로필에서 'business'를 검색해 비즈니스 롤플레이 가능한 튜터를 고르세요."}],"manners":[["합장 인사 (ไหว้, 와이)","두 손바닥을 모아 가슴~얼굴 높이에서 가볍게 고개를 숙입니다. 상대가 먼저 하면 같이 합장하며 인사하세요. 지위나 나이가 높은 사람에게는 손 위치가 높아집니다. 외국인에게는 악수도 흔하지만 상대가 와이를 하면 답례하는 것이 무난합니다."],["호칭","성 대신 이름을 부르며 앞에 คุณ(쿤)을 붙입니다. 태국 사람은 공식 이름 외에 짧은 별명(ชื่อเล่น)을 두루 쓰므로 명함의 이름과 별명을 함께 물어 두면 좋습니다."],["명함","받을 때는 두 손 또는 오른손으로 정중하게 받고, 바로 넣지 말고 한 번 읽어 본 뒤 테이블이나 명함 지갑에 둡니다. 태국어·영어 양면 명함이 널리 쓰입니다."],["머리와 발","머리는 신성하게, 발은 낮게 여깁니다. 남의 머리를 만지거나 발로 물건을 가리키거나 옮기는 행동은 피하세요. 앉을 때 발바닥이 상대를 향하지 않게 하세요."],["왕실과 불교","왕실에 대한 농담이나 비판은 큰 문제가 될 수 있습니다. 불상이나 승려를 존중하세요. 승려와 이성의 신체 접촉은 하지 않습니다."],["체면과 배려","공개 석상에서 면박을 주거나 크게 화를 내면 관계가 크게 상합니다. กรุณา·เกรงใจ(끄렝짜이, 상대를 불편하게 하지 않으려는 배려)와 ใจเย็น(짜이옌, 침착함)이 중요한 가치입니다. 부정적인 말은 사적인 자리에서 부드럽게 전하세요."],["'네'가 동의가 아닐 수 있음","ได้ครับ나 ครับ가 반드시 '동의/약속'을 뜻하지는 않습니다. 중요한 합의는 숫자와 날짜를 되풀이해 확인하고, 이메일이나 라인으로 기록을 남기세요."],["시간","방콕은 교통체증이 심해서 이동 시간을 넉넉히 잡아야 합니다. 약속 시각은 지키되 상대가 늦을 수 있음을 감안하세요. 불교 공휴일, 송끄란(4월 중순), 연말연시 일정은 미리 확인하세요."],["복장","처음 만날 때는 단정한 복장이 좋습니다. 덥더라도 지나치게 노출된 옷은 피하세요. 장례에서는 검은색 또는 흰색 옷을 입습니다."],["식사와 술","초대한 사람이 계산하는 경우가 많습니다. 식사 자리는 관계 형성의 시간이라 바로 업무 이야기를 꺼내기보다 가벼운 대화로 시작하세요. 술을 못 마시면 'ผมไม่ดื่มครับ'로 정중히 사양하세요."],["연락 수단","LINE 메신저가 업무에서도 널리 쓰입니다. 연락처 교환 시 전화번호와 LINE ID를 함께 받아 두세요."],["법률·세무","외국인 사업 규정, 투자 인센티브, 비자·워크퍼밋, 세금은 수시로 바뀝니다. 계약 전에는 현지 변호사·회계사와 공식 기관(BOI, 상무부 사업개발국 등)에서 최신 내용을 확인하세요."]]};
+const $ = (s,r=document)=>r.querySelector(s);
+const store = {
+  get(){try{return JSON.parse(localStorage.getItem('thai_v1'))||{}}catch(e){return {}}},
+  set(o){localStorage.setItem('thai_v1',JSON.stringify(o))}
+};
+let S = store.get(); S.checks=S.checks||{}; S.done=S.done||{}; S.box=S.box||{}; S.best=S.best||{}; S.show=S.show||{rom:true,ko:true,mean:true};
+const save=()=>store.set(S);
+
+// ----- audio (브라우저 내장 태국어 음성 사용) -----
+function thVoice(){const vs=window.speechSynthesis?speechSynthesis.getVoices():[];return vs.find(v=>v.lang&&v.lang.replace('_','-').toLowerCase().startsWith('th'))||null;}
+if(window.speechSynthesis){speechSynthesis.onvoiceschanged=()=>{const e=document.getElementById('vstat');if(e)e.innerHTML=vstat();};}
+function vstat(){const v=thVoice();return v?`✅ 태국어 음성 사용 중: ${v.name}`:'⚠️ 이 브라우저에서 태국어 음성을 찾지 못했습니다. Mac은 시스템 설정 > 손쉬운 사용 > 말하기 콘텐츠 > 시스템 음성 > 관리에서 "Thai (Kanya)"를 내려받으면 됩니다.';}
+function play(text){return tts(text);}
+function tts(text){
+  return new Promise(res=>{
+    if(!window.speechSynthesis){res();return;}
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);u.lang='th-TH';
+    const v=thVoice();if(v)u.voice=v;
+    u.rate=+(localStorage.getItem('thai_rate')||0.85);
+    u.onend=res;u.onerror=res;
+    speechSynthesis.speak(u);
+  });
+}
+function setRate(v){localStorage.setItem('thai_rate',v);}
+const say = it => (it.th||'').replace('...','จุน');
+
+// ----- recording -----
+let rec=null, recChunks=[], recBtn=null;
+async function toggleRec(btn){
+  if(rec&&rec.state==='recording'){rec.stop();return;}
+  try{
+    const st=await navigator.mediaDevices.getUserMedia({audio:true});
+    rec=new MediaRecorder(st);recChunks=[];recBtn=btn;
+    rec.ondataavailable=e=>recChunks.push(e.data);
+    rec.onstop=()=>{st.getTracks().forEach(t=>t.stop());btn.classList.remove('rec');btn.textContent='🎤';
+      const a=new Audio(URL.createObjectURL(new Blob(recChunks,{type:'audio/webm'})));a.play();};
+    rec.start();btn.classList.add('rec');btn.textContent='⏹';
+    setTimeout(()=>{if(rec.state==='recording')rec.stop();},8000);
+  }catch(e){alert('마이크 권한이 필요합니다. 브라우저에서 마이크를 허용해 주세요.');}
+}
+
+// ----- all items -----
+const ALL=[];
+DATA.lessons.forEach(L=>L.items.forEach((it,i)=>ALL.push({...it,id:'L'+L.id+'-'+i,lesson:L.id})));
+const lessonById=id=>DATA.lessons.find(l=>l.id==id);
+
+// ----- routing -----
+const TABS=[['home','시작·로드맵'],['sound','발음·성조'],['alpha','문자'],['lesson','레슨'],['manner','비즈니스 매너'],['grammar','문법 패턴'],['cards','복습 카드'],['quiz','퀴즈'],['res','자료']];
+function nav(){
+  const h=(location.hash||'#home').slice(1).split('/')[0];
+  $('#nav').innerHTML=TABS.map(([k,n])=>`<button class="${k===h?'on':''}" onclick="location.hash='${k}'">${n}</button>`).join('');
+  const v={home,sound,alpha,lesson,manner,grammar,cards,quiz,res}[h]||home;
+  v();window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',nav);
+
+// ----- views -----
+function pct(){
+  const total=DATA.weeks.reduce((a,w)=>a+w.goals.length,0);
+  const done=Object.values(S.checks).filter(Boolean).length;
+  return {total,done};
+}
+function home(){
+  const p=pct();const known=Object.values(S.box).filter(b=>b>=3).length;
+  $('#main').innerHTML=`
+  <div class="card"><h2>이 코스 사용법</h2>
+   <p>하루 <b>30분</b>, <b>기본 8주</b>로 일상 회화를, 이어서 <b>비즈니스 4주</b>(9~12주차)로 태국 현지 업무에 필요한 표현을 익히도록 구성했습니다. 비즈니스가 급하면 1~3주차 후 9주차로 먼저 가도 됩니다. 문자는 처음부터 완벽히 외우지 않고 <b>소리 → 문장 → 문자</b> 순서로 갑니다.</p>
+   <div class="tip"><b>하루 30분 루틴</b><br>① 성조 연습/지난 복습 5분 → ② 오늘 레슨 듣기 + 쉐도잉(🔊 듣고 🎤 따라 녹음) 15분 → ③ 복습 카드 5분 → ④ 퀴즈 또는 소리 내어 말하기 5분</div>
+   <div class="row"><div style="flex:1"><div class="muted">주간 목표 진행 ${p.done}/${p.total}</div><div class="bar"><i style="width:${p.done/p.total*100}%"></i></div></div>
+   <div class="muted">완료 레슨 ${Object.values(S.done).filter(Boolean).length}/${DATA.lessons.length} · 익힌 카드 ${known}/${ALL.length}</div></div>
+   <div class="row"><span id="vstat" class="muted">${vstat()}</span><label class="muted">음성 속도 <select onchange="setRate(this.value)"><option value="0.7" ${localStorage.getItem('thai_rate')==='0.7'?'selected':''}>느리게</option><option value="0.85" ${(localStorage.getItem('thai_rate')||'0.85')==='0.85'?'selected':''}>보통</option><option value="1" ${localStorage.getItem('thai_rate')==='1'?'selected':''}>빠르게</option></select></label> <button class="b ghost" onclick="play('สวัสดีครับ')">🔊 소리 테스트</button></div>
+   <p class="muted">진행 기록은 이 브라우저에만 저장됩니다. 파일은 index.html 하나로 동작합니다(인터넷 불필요).</p>
+  </div>
+  ${DATA.weeks.map(w=>{
+    return (w.w===9?`<div class="card" style="background:#fff7ed"><h2>💼 비즈니스 트랙 (9~12주차)</h2><div class="muted">기본 회화(레슨 1~3, 4, 6, 9, 11)를 먼저 익히면 효과가 큽니다. 중요한 계약·법률 사항은 통역이나 전문가와 함께 확인하세요.</div></div>`:'')+`<div class="card"><div class="weekhead"><h2>${w.w}주차 · ${w.title}</h2>
+      <div>${w.lessons.map(l=>`<button class="b ghost" onclick="location.hash='lesson/${l}'">레슨 ${l}</button>`).join(' ')}</div></div>
+      ${w.goals.map((g,i)=>{const k='w'+w.w+'-'+i;return `<label class="chk"><input type="checkbox" ${S.checks[k]?'checked':''} onchange="S.checks['${k}']=this.checked;save();home()"> <span>${g}</span></label>`}).join('')}
+      <div class="muted" style="margin-top:6px">💡 ${w.review}</div></div>`}).join('')}`;
+}
+function toneSvg(i){
+  const P=[[8,22,52,22],[8,32,52,34],[8,8,52,36],[8,10,52,6],[8,34,52,6]][i];
+  return `<svg width="64" height="44" viewBox="0 0 60 44"><line x1="2" y1="22" x2="58" y2="22" stroke="#e5e7eb" stroke-dasharray="3"/><line x1="${P[0]}" y1="${P[1]}" x2="${P[2]}" y2="${P[3]}" stroke="#e11d48" stroke-width="4" stroke-linecap="round"/></svg>`;
+}
+function sound(){
+  $('#main').innerHTML=`
+  <div class="card"><h2>태국어 성조 5개</h2>
+  <p>같은 소리라도 성조가 다르면 다른 단어입니다. 아래에서 🔊 듣고 → 🎤 따라 하며 귀와 입을 먼저 열어 보세요. 그림은 목소리 높이 변화입니다.</p>
+  <div class="grid">${DATA.tones.map((t,i)=>`<div class="card" style="margin:0">
+    <div class="row"><b>${t.name}</b>${toneSvg(i)}</div>
+    <div class="big th">${t.th}</div><div class="muted">${t.rom} · ${t.mean} · 기호 ${t.mark}</div>
+    <div class="muted" style="margin:6px 0">${t.desc}</div>
+    <button class="ic" onclick="play('${t.th}')">🔊</button> <button class="ic" onclick="toggleRec(this)">🎤</button></div>`).join('')}</div>
+  <div class="tip">성조는 글자의 자음 종류(중/고/저), 모음 길이, 성조 기호가 합쳐 결정됩니다. 초반에는 규칙을 외우기보다 <b>소리를 그대로 따라 하는 것</b>이 훨씬 효율적입니다.</div>
+  </div>
+  <div class="card"><h2>성조 짝 훈련</h2>
+  <p class="muted">소리는 비슷하고 성조만 다른 단어입니다. 한 줄씩 듣고 따라 하세요. 그 다음 퀴즈의 '성조 구분' 모드로 확인합니다.</p>
+  ${DATA.toneDrills.map(d=>`<div class="item"><button class="ic" onclick="play('${d[0]}')">🔊</button><div class="txt"><span class="big th">${d[0]}</span> <span class="rom">${d[1]}</span> · <b>${d[2]}</b> <span class="pill low">${d[3]}</span></div><button class="ic" onclick="toggleRec(this)">🎤</button></div>`).join('')}
+  </div>
+  <div class="card"><h2>한국인이 자주 틀리는 소리</h2>
+  <ul><li><b>ㄲ/ㄸ/ㅃ 같은 무기음(g, dt, bp)</b>: ก(g), ต(dt), ป(bp)는 된소리처럼 센 소리가 아니라 숨을 내지 않는 소리입니다.</li>
+  <li><b>유기음(k, t, p)</b>: ข·ค(k), ถ·ท(t), ผ·พ(p)는 숨을 내쉬며 'ㅋ ㅌ ㅍ'처럼.</li>
+  <li><b>긴 모음과 짧은 모음</b>: 모음 길이가 단어 뜻을 바꿀 수 있으니 길이도 그대로 따라 하세요.</li>
+  <li><b>ㅓ 계열</b>: เ-อ(əə)는 입을 약간 벌리고 '어-'를 길게 합니다.</li></ul></div>`;
+}
+function alpha(){
+  const f=window._cls||'all';
+  const list=DATA.consonants.filter(c=>f==='all'||c[3]===f);
+  $('#main').innerHTML=`
+  <div class="card"><h2>자음 44자 (회화 우선 학습 후 천천히)</h2>
+  <p class="muted">회화가 목표라면 문자는 1~2개월 뒤에 병행해도 됩니다. 한 주에 5~6자씩 소리와 함께 보면 8주에 모두 한 번 읽을 수 있습니다. <b>모양 → 이름 소리 → 첫소리</b> 순서로 봅니다. ฃ, ฅ는 현재 쓰지 않는 글자입니다.</p>
+  <div class="tip"><b>자음 3종류(성조 계산에 쓰임)</b>: <span class="pill mid">중자음 9</span> <span class="pill high">고자음 11</span> <span class="pill low">저자음 24</span></div>
+  <div class="row"><label>보기 <select onchange="window._cls=this.value;alpha()">
+   <option value="all" ${f==='all'?'selected':''}>전체</option><option value="mid" ${f==='mid'?'selected':''}>중자음</option>
+   <option value="high" ${f==='high'?'selected':''}>고자음</option><option value="low" ${f==='low'?'selected':''}>저자음</option></select></label></div></div>
+  <div class="grid">${list.map(c=>`<div class="card" style="margin:0;text-align:center">
+    <div class="big th" style="font-size:44px">${c[0]}</div><div class="th">${c[1]}</div>
+    <div class="muted">${c[4]} · 첫소리 <b>${c[2]}</b></div>
+    <span class="pill ${c[3]}">${{mid:'중',high:'고',low:'저'}[c[3]]}자음</span><br>
+    <button class="ic" style="margin-top:6px" onclick="play('${c[1]}')">🔊</button></div>`).join('')}</div>`;
+}
+function itemHtml(it){
+  return `<div class="item"><button class="ic" onclick="play(${JSON.stringify(say(it)).replace(/"/g,'&quot;')})">🔊</button>
+   <div class="txt"><div class="big th">${it.th}</div>
+   <div class="rom" data-k="rom" ${S.show.rom?'':'hidden'}>${it.rom}</div>
+   <div class="ko" data-k="ko" ${S.show.ko?'':'hidden'}>${it.ko}</div>
+   <div class="mean" data-k="mean" ${S.show.mean?'':'hidden'}>${it.mean}</div>
+   ${it.note?`<div class="note">${it.note}</div>`:''}</div>
+   <button class="ic" onclick="toggleRec(this)">🎤</button></div>`;
+}
+function setShow(k,v){S.show[k]=v;save();lesson();}
+function lesson(){
+  const parts=(location.hash||'').split('/');const id=+parts[1]||window._lid||1;window._lid=id;
+  const L=lessonById(id);const dls=DATA.dialogues.filter(d=>d.lesson===id);
+  $('#main').innerHTML=`
+  <div class="card"><div class="muted">기본 회화</div><div class="row">${DATA.lessons.filter(l=>l.track!=='biz').map(l=>`<button class="b ${l.id===id?'':'ghost'}" onclick="location.hash='lesson/${l.id}'">${S.done[l.id]?'✓ ':''}${l.id}. ${l.title}</button>`).join('')}</div><div class="muted" style="margin-top:8px">💼 비즈니스 회화</div><div class="row">${DATA.lessons.filter(l=>l.track==='biz').map(l=>`<button class="b" style="${l.id===id?'background:#e11d48;color:#fff':'background:#ffe4e6;color:#be123c'}" onclick="location.hash='lesson/${l.id}'">${S.done[l.id]?'✓ ':''}${l.id}. ${l.title.replace('[비즈] ','')}</button>`).join('')}</div></div>
+  <div class="card"><div class="weekhead"><h2>레슨 ${L.id} · ${L.title}</h2>
+   <label><input type="checkbox" ${S.done[id]?'checked':''} onchange="S.done[${id}]=this.checked;save();lesson()"> 완료</label></div>
+   <div class="muted">목표: ${L.goal}</div><div class="tip">💡 ${L.tip}</div>
+   <div class="row muted">가리기:
+    <label><input type="checkbox" ${S.show.rom?'checked':''} onchange="setShow('rom',this.checked)"> 로마자</label>
+    <label><input type="checkbox" ${S.show.ko?'checked':''} onchange="setShow('ko',this.checked)"> 한글 발음</label>
+    <label><input type="checkbox" ${S.show.mean?'checked':''} onchange="setShow('mean',this.checked)"> 뜻</label>
+    <span>(체크를 풀면 숨겨져서 스스로 테스트할 수 있어요)</span></div>
+   <div class="tip" style="background:#eef6ff;border-color:#bfdbfe"><b>공부 순서</b>: ①🔊 듣기 → ②🎤 따라 말하고 내 목소리 듣기 → ③뜻 가리고 말해 보기 → ④복습 카드에서 확인</div>
+   ${L.items.map(itemHtml).join('')}</div>
+  ${dls.map(d=>`<div class="card"><div class="weekhead"><h3>대화 연습: ${d.title}</h3><button class="b" onclick="playDlg(${DATA.dialogues.indexOf(d)})">▶ 전체 듣기</button></div>
+    ${d.lines.map(l=>`<div class="dlg"><b>${l[0]}</b><button class="ic" onclick="play('${l[1]}')">🔊</button><div><div class="th big" style="font-size:20px">${l[1]}</div><div class="rom" style="color:#1f3a8a;font-size:14px">${l[2]}</div><div class="muted">${l[3]}</div></div></div>`).join('')}
+    <div class="muted">역할 연습: 한 줄씩 듣고 → 내 역할을 직접 말해 보세요. 다 되면 반대 역할도 해 보세요.</div></div>`).join('')}
+  <div class="row"><button class="b ghost" onclick="location.hash='lesson/${Math.max(1,id-1)}'">← 이전</button><button class="b" onclick="location.hash='lesson/${Math.min(DATA.lessons.length,id+1)}'">다음 →</button></div>`;
+  document.querySelectorAll('[data-k]').forEach(e=>{});
+}
+async function playDlg(i){for(const l of DATA.dialogues[i].lines){await play(l[1]);await new Promise(r=>setTimeout(r,500));}}
+function manner(){
+  $('#main').innerHTML=`<div class="card"><h2>💼 태국 비즈니스 매너 체크리스트</h2><p class="muted">첫 미팅 전에 읽어 두세요. 일반적인 관행이며 업종·회사·지역에 따라 다를 수 있습니다.</p>
+  ${DATA.manners.map(m=>`<div class="item"><div class="txt"><b>${m[0]}</b><div>${m[1]}</div></div></div>`).join('')}</div>
+  <div class="card"><h3>자주 쓰는 한마디 3개</h3><div class="row"><button class="b" onclick="play('สวัสดีครับ')">🔊 สวัสดีครับ</button><button class="b" onclick="play('ฝากตัวด้วยครับ')">🔊 ฝากตัวด้วยครับ</button><button class="b" onclick="play('ขอบคุณครับ')">🔊 ขอบคุณครับ</button></div></div>`;
+}
+function grammar(){
+  $('#main').innerHTML=`<div class="card"><h2>문법 패턴 요약</h2><p class="muted">태국어는 시제·인칭 변화가 없어 패턴 몇 개만 알면 문장을 확장할 수 있습니다.</p>
+  <table><tr><th>패턴</th><th>설명</th><th>예</th></tr>${DATA.grammar.map(g=>`<tr><td><b>${g[0]}</b></td><td>${g[1]}</td><td class="th">${g[2]}</td></tr>`).join('')}</table></div>
+  <div class="card"><h3>공손 표현과 성별</h3><ul><li>남성: ผม (폼) / ครับ (크랍)</li><li>여성: ฉัน (찬), ดิฉัน (디찬) / ค่ะ (카, 평서), คะ (카, 의문)</li><li>부탁: ขอ…หน่อย / …ด้วย / …ได้ไหม</li><li>완곡: 문장 끝에 นะ (나) '~요, 그렇죠?'</li></ul></div>`;
+}
+
+// ----- cards (Leitner-lite) -----
+function pickCard(deck){
+  const ws=deck.map(c=>{const b=S.box[c.id]??0;return Math.pow(0.45,b)+0.05;});
+  const sum=ws.reduce((a,b)=>a+b,0);let r=Math.random()*sum;
+  for(let i=0;i<deck.length;i++){r-=ws[i];if(r<=0)return deck[i];}return deck[0];
+}
+let CARD=null, FLIP=false;
+function cards(){
+  const dl=window._deck||'all';const dir=window._dir||'ko2th';
+  const deck=ALL.filter(c=>dl==='all'||c.lesson==dl);
+  if(!CARD||(dl!=='all'&&CARD.lesson!=dl))CARD=pickCard(deck);
+  FLIP=false;
+  $('#main').innerHTML=`<div class="card"><h2>복습 카드</h2>
+   <div class="row"><label>범위 <select onchange="window._deck=this.value;CARD=null;cards()"><option value="all">전체 (${ALL.length})</option>${DATA.lessons.map(l=>`<option value="${l.id}" ${dl==l.id?'selected':''}>레슨 ${l.id}. ${l.title}</option>`).join('')}</select></label>
+   <label>방향 <select onchange="window._dir=this.value;cards()"><option value="ko2th" ${dir==='ko2th'?'selected':''}>뜻 → 태국어</option><option value="listen" ${dir==='listen'?'selected':''}>소리 → 뜻</option></select></label>
+   <span class="muted">익힌 카드 ${deck.filter(c=>(S.box[c.id]||0)>=3).length}/${deck.length}</span></div></div>
+   <div class="card flash" id="fc" onclick="flip()"></div>
+   <div class="row" id="fcb" style="justify-content:center"></div>`;
+  drawCard();
+}
+function drawCard(){
+  const dir=window._dir||'ko2th';const c=CARD;
+  if(!FLIP){
+    $('#fc').innerHTML = dir==='ko2th' ? `<div class="muted">이 뜻을 태국어로 말해 보세요</div><div class="big">${c.mean}</div><div class="muted">탭하면 정답 확인</div>`
+       : `<div class="muted">소리를 듣고 뜻을 떠올려 보세요</div><button class="ic" style="width:60px;height:60px;font-size:28px" onclick="event.stopPropagation();play(${JSON.stringify(say(c)).replace(/"/g,'&quot;')})">🔊</button><div class="muted">탭하면 정답 확인</div>`;
+    $('#fcb').innerHTML='';
+    if(dir==='listen')play(say(c));
+  } else {
+    $('#fc').innerHTML=`<div class="big th">${c.th}</div><div class="rom" style="color:#1f3a8a">${c.rom}</div><div class="ko" style="color:#7c3aed">${c.ko}</div><div class="mean">${c.mean}</div>${c.note?`<div class="note muted">${c.note}</div>`:''}
+      <button class="ic" onclick="event.stopPropagation();play(${JSON.stringify(say(c)).replace(/"/g,'&quot;')})">🔊</button>`;
+    $('#fcb').innerHTML=`<button class="b red" onclick="grade(0)">몰랐어요</button><button class="b ghost" onclick="grade(1)">헷갈려요</button><button class="b ok" onclick="grade(2)">알아요</button>`;
+    play(say(c));
+  }
+}
+function flip(){FLIP=!FLIP;drawCard();}
+function grade(g){
+  const b=S.box[CARD.id]||0;
+  S.box[CARD.id]= g===0?0 : g===1?Math.max(1,b) : Math.min(4,b+1);
+  save();
+  const dl=window._deck||'all';CARD=pickCard(ALL.filter(c=>dl==='all'||c.lesson==dl));FLIP=false;cards();
+}
+
+// ----- quiz -----
+let Q=null;
+function quiz(){
+  Q=null;
+  $('#main').innerHTML=`<div class="card"><h2>퀴즈</h2>
+   <p class="muted">한 판에 10문제. 소리를 먼저 듣고 맞히는 것이 회화에는 가장 중요합니다.</p>
+   <div class="row"><label>범위 <select id="qd"><option value="all">전체</option>${DATA.lessons.map(l=>`<option value="${l.id}">레슨 ${l.id}. ${l.title}</option>`).join('')}</select></label></div>
+   <div class="grid" style="margin-top:10px">
+    <button class="b" onclick="startQuiz('listen')">🔊 듣고 뜻 맞히기<br><small>최고 ${S.best.listen??'-'}/10</small></button>
+    <button class="b" onclick="startQuiz('read')">🇰🇷 뜻 보고 태국어 고르기<br><small>최고 ${S.best.read??'-'}/10</small></button>
+    <button class="b" onclick="startQuiz('tone')">🎵 성조 구분<br><small>최고 ${S.best.tone??'-'}/10</small></button>
+   </div></div><div id="qbox"></div>`;
+}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startQuiz(mode){
+  const dl=$('#qd').value;let pool=ALL.filter(c=>dl==='all'||c.lesson==dl);
+  if(mode!=='tone'&&pool.length<4)pool=ALL;
+  let qs;
+  if(mode==='tone'){
+    const names=DATA.toneDrills;
+    qs=shuffle(names).slice(0,10).map(d=>({audio:d[0],prompt:'들리는 단어의 성조는?',answer:d[3],opts:shuffle(['평성','저성','하성','고성','상성']),extra:`${d[0]} ${d[1]} (${d[2]})`}));
+  } else {
+    qs=shuffle(pool).slice(0,10).map(c=>{
+      const wrong=shuffle(ALL.filter(x=>x.id!==c.id&&x.mean!==c.mean)).slice(0,3);
+      if(mode==='listen')return {audio:say(c),prompt:'🔊 소리를 듣고 뜻을 고르세요',answer:c.mean,opts:shuffle([c,...wrong].map(x=>x.mean)),extra:`${c.th} · ${c.rom}`};
+      return {prompt:`"${c.mean}" 를 태국어로 하면?`,answer:c.th,opts:shuffle([c,...wrong].map(x=>x.th)),extra:`${c.rom} (${c.ko})`,thOpts:true,audioAfter:say(c)};
+    });
+  }
+  Q={mode,qs,i:0,score:0,wrongs:[]};showQ();
+}
+function showQ(){
+  const q=Q.qs[Q.i];
+  if(!q){
+    S.best[Q.mode]=Math.max(S.best[Q.mode]||0,Q.score);save();
+    $('#qbox').innerHTML=`<div class="card"><h2>결과 ${Q.score}/${Q.qs.length}</h2>
+     ${Q.wrongs.length?`<h3>틀린 문제</h3>${Q.wrongs.map(w=>`<div class="item"><div class="txt">${w}</div></div>`).join('')}`:'<p>전부 맞혔어요! 🎉</p>'}
+     <button class="b" onclick="quiz()">다시 하기</button></div>`;return;
+  }
+  $('#qbox').innerHTML=`<div class="card"><div class="muted">${Q.i+1} / ${Q.qs.length} · 점수 ${Q.score}</div>
+   <h3>${q.prompt}</h3>${q.audio?`<button class="ic" style="width:52px;height:52px;font-size:24px" onclick="play('${q.audio}')">🔊</button>`:''}
+   <div id="opts">${q.opts.map((o,i)=>`<button class="opt ${q.thOpts?'th big':''}" onclick="answer(${i})">${o}</button>`).join('')}</div>
+   <div id="fb"></div></div>`;
+  if(q.audio)play(q.audio);
+}
+function answer(i){
+  const q=Q.qs[Q.i];const ok=q.opts[i]===q.answer;
+  document.querySelectorAll('#opts .opt').forEach((b,j)=>{b.disabled=true;if(q.opts[j]===q.answer)b.classList.add('good');else if(j===i)b.classList.add('bad');});
+  if(ok)Q.score++;else Q.wrongs.push(`${q.extra} → 정답: ${q.answer}`);
+  if(q.audioAfter)play(q.audioAfter);
+  $('#fb').innerHTML=`<p>${ok?'✅ 정답!':'❌ 오답'} <span class="muted">${q.extra}</span></p><button class="b" onclick="Q.i++;showQ()">${Q.i+1>=Q.qs.length?'결과 보기':'다음'}</button>`;
+}
+function res(){
+  const cats=[...new Set(DATA.resources.map(r=>r.cat))];
+  $('#main').innerHTML=`<div class="card"><h2>추가 자료·도구</h2><p class="muted">이 코스를 보완해 줄 외부 자료입니다. 요금/서비스 내용은 변동될 수 있으니 가입 전에 직접 확인하세요.</p></div>`+
+  cats.map(c=>`<div class="card"><h3>${c}</h3>${DATA.resources.filter(r=>r.cat===c).map(r=>`<div class="item"><div class="txt"><a href="${r.url}" target="_blank" rel="noopener"><b>${r.title}</b></a><div class="muted">${r.desc}</div></div></div>`).join('')}</div>`).join('')+
+  `<div class="card"><h3>실전 팁</h3><ul><li>모르는 표현은 이 코스의 복습 카드 형식으로 직접 추가하세요(메모 + 녹음).</li><li>튜터 수업 전에 '오늘 말하고 싶은 문장 5개'를 준비하면 수업 효율이 2배 됩니다.</li><li>이 코스의 음성은 브라우저/OS에 내장된 합성 음성입니다. 억양과 리듬은 반드시 원어민 영상/튜터로 교차 확인하세요.</li></ul></div>`;
+}
+nav();
+</script>
+</body>
+</html>
